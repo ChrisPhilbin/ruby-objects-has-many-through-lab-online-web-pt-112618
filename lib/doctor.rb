@@ -1,5 +1,4 @@
 class Doctor
-
   attr_accessor :name
 
   @@all = []
@@ -18,13 +17,10 @@ class Doctor
   end
 
   def appointments
-    Appointment.all.select do |appointment|
-      appointment.doctor == self
-    end
+    Appointment.all.select { |appointment| appointment.doctor == self }
   end
 
   def patients
     appointments.map(&:patient)
   end
-
 end
